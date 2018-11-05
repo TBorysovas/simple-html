@@ -1,0 +1,35 @@
+section ul#desList {
+    background-color: rgba(238,170,123,0.7);
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+section p#citation {
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 15px;
+    background-color: rgba(238,170,123,0.7);
+}
+
+section ul#desListForm {
+    list-style: none;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 15px;
+    background-color: rgba(238,170,123,0.7);
+}
+
+section span.words {
+    background-color: rgba(238,170,123,0.7);
+    padding: 3px;
+}
+
+code div#designFunc {
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 15px;
+    background-color: rgba(238,170,123,0.7);
+}

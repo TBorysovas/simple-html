@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="_css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_css/contact.css" />
+    <title>Powershell training</title>
+    <link rel="icon" type="image/png" href="_img/psicon1.png" />
+    <script type="text/javascript" src="jscript.js"></script>
+</head>
+
+<body>
+    <div id="interface">
+
+        <header id="header">
+            <hgroup>
+                <h1>PowerShell</h1>
+                <h3>Copyright (C) 2015 Microsoft Corporation. All rights reserverd.</h3>
+            </hgroup>
+
+            <img id="icon" src="_img/logo.png" onmouseover="icone('psicon')" onmouseout="icone('logo')" />
+            <nav id="menu">
+                <h1>Principal Menu</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="background.html">Background</a></li>
+                    <li><a href="design.html">Design</a></li>
+                    <li><a href="comparison.html">Comparisons</a></li>
+                    <li><a href="appSupport.html">Applications' support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+
+            <form action="/action_page.php" method="post">
+                <fieldset id="form">
+                    <legend>Contact us</legend>
+                    Name:<br />
+                    <input type="text" name="name" placeholder="Name and surname" />
+                    <br />
+                    E-mail: <br />
+                    <input type="text" name="email" placeholder="Email" />
+                    <br />
+                    Subject: <br />
+                    <input type="text" name="subject" placeholder="Title" />
+                    <br />
+                    Message: <br />
+                    <input id="textArea" type="text" name="message" placeholder="What would you like to tell/ask us?" />
+                    <br /><br />
+                    <div id="submit">
+                        <input type="submit" value="Submit">
+                    </div>
+                </fieldset>
+            </form>
+            <img onload="myBtnHide()" onclick="topFunction()" id="myBtn" title="Go to top" src="_img/top.png">
+        </section>
+
+
+        <footer id="foot">
+            <p>This page was created based on wikipedia material and for HTML+CSS+JS learning/training purposes only.</p>
+            <p>Please use the following <a href="https://en.wikipedia.org/wiki/PowerShell" target="_blank">link</a> to
+                look the original material</p>
+            <p>Creator: Thiago Borysovas</p>
+        </footer>
+    </div>
+</body>
+
+</html>

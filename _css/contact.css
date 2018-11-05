@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Life+Savers|Poiret+One');
+
+section form {
+    padding: 50px;
+}
+
+section fieldset#form {
+    width: 500px;
+    padding: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(238,170,123,0.9);
+}
+
+section fieldset#form legend{
+    font-family: 'Life Savers', cursive;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #E37222;
+}
+
+section fieldset#form input[type=text]{
+    width: 75%;
+    height: 20px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0, .55), 0px 1px 1px rgba(255,255,255,.5);
+    -webkit-transition: width 0.7s ease-in-out;
+    transition: width 0.7s ease-in-out;
+}
+
+section fieldset#form input[type=text]:focus{
+    width: 100%;
+}
+
+section fieldset#form input#textArea{
+    width: 75%;
+    height: 20px;
+    -webkit-transition: width 0.7s ease-in-out;
+   transition: width 0.7s, height 1.4s ease-in-out;
+}
+
+section fieldset#form input#textArea:focus{
+    width: 100%;
+    height: 150px;
+}
+
+section div#submit {
+    padding-left: 300px;
+}
+
+section fieldset#form input[type=submit]{
+    font-family: 'Life Savers', cursive;
+    font-size: 20px;
+    background-color: #07889B;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: background-color 0.7s;
+}
+
+section fieldset#form input[type=submit]:hover{
+    background-color: #66B9BF;
+}

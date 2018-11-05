@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="_css/styles.css" />
+    <title>Powershell training</title>
+    <link rel="icon" type="image/png" href="_img/psicon1.png" />
+    <script type="text/javascript" src="jscript.js"></script>
+
+</head>
+
+<body>
+    <div id="interface">
+
+        <header id="header">
+            <hgroup>
+                <h1>PowerShell</h1>
+                <h3>Copyright (C) 2015 Microsoft Corporation. All rights reserverd.</h3>
+            </hgroup>
+
+            <img id="icon" src="_img/logo.png" onmouseover="icone('psicon')" onmouseout="icone('logo')" />
+            <nav id="menu">
+                <h1>Principal Menu</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="background.html">Background</a></li>
+                    <li><a href="design.html">Design</a></li>
+                    <li><a href="comparison.html">Comparisons</a></li>
+                    <li><a href="appSupport.html">Applications' support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <h1>Introduction to the application.</h1>
+            <p>PowerShell (including Windows PowerShell and PowerShell Core) is a task automation and configuration
+                management framework from Microsoft, consisting of a command-line shell and associated scripting
+                language built on the .NET Framework. Initially a Windows component only, PowerShell was made
+                open-source and cross-platform on 18 August 2016.</p>
+
+            <p>In PowerShell, administrative tasks are generally performed by cmdlets (pronounced command-lets), which
+                are specialized .NET classes implementing a particular operation. Sets of cmdlets may be combined into
+                scripts, executables (which are standalone applications), or by instantiating regular .NET classes (or
+                WMI/COM Objects). These work by accessing data in different data stores, like the file system or
+                registry, which are made available to the PowerShell runtime via PowerShell providers.</p>
+
+            <p>PowerShell provides full access to COM and WMI, enabling administrators to perform administrative tasks
+                on both local and remote Windows systems as well as WS-Management and CIM enabling management of remote
+                Linux systems and network devices. PowerShell also provides a hosting API with which the PowerShell
+                runtime can be embedded inside other applications. These applications can then use PowerShell
+                functionality to implement certain operations, including those exposed via the graphical interface.
+                This capability has been used by Microsoft Exchange Server 2007 to expose its management functionality
+                as PowerShell cmdlets and providers and implement the graphical management tools as PowerShell hosts
+                which invoke the necessary cmdlets. Other Microsoft applications including Microsoft SQL Server 2008
+                also expose their management interface via PowerShell cmdlets.</p>
+
+            <p>PowerShell includes its own extensive, console-based help (similar to man pages in Unix shells)
+                accessible via the Get-Help cmdlet. Local help contents can be retrieved from the Internet via
+                Update-Help cmdlet. Alternatively, help from the web can be acquired on a case-by-case basis via the
+                -online switch to Get-Help.</p>
+
+            <h3>Specifications</h3>
+
+            <table id="tableSpec">
+                <tr>
+                    <th>Paradigm</th>
+                    <td>Multi-paradigm: Imperative, pipeline, object-oriented, functional and reflective</td>
+                </tr>
+                <tr>
+                    <th>Designed by</th>
+                    <td>Jeffrey Snover, Bruce Payette, James Truher (et al.)</td>
+                </tr>
+                <tr>
+                    <th>Developer</th>
+                    <td>Microsoft</td>
+                </tr>
+                <tr>
+                    <th>First appeared</th>
+                    <td>November 14, 2006; 10 years ago</td>
+                </tr>
+                <tr>
+                    <th>Stable release</th>
+                    <td>5.1.14393 / August 2, 2016; 8 months ago</td>
+                </tr>
+                <tr>
+                    <th>Preview release</th>
+                    <td>6.0.0 Alpha 17 / March 8, 2017; 41 days ago</td>
+                </tr>
+                <tr>
+                    <th>Typing discipline</th>
+                    <td>Strong, safe, implicit and dynamic</td>
+                </tr>
+                <tr>
+                    <th>Platform</th>
+                    <td>.NET Framework, .NET Core</td>
+                </tr>
+                <tr>
+                    <th>OS</th>
+                    <td>Windows 7 and later, macOS, CentOS, Ubuntu</td>
+                </tr>
+                <tr>
+                    <th>License</th>
+                    <td>MIT License[1] (but the Windows component remains proprietary)</td>
+                </tr>
+                <tr>
+                    <th>Filename extensions</th>
+                    <td>
+                        <ul>
+                            <li>.ps1 (Script)</li>
+                            <li>.ps1xml (XML Document)</li>
+                            <li>.psc1 (Console File)</li>
+                            <li>.psd1 (Data File)</li>
+                            <li>.psm1 (Script Module)</li>
+                            <li>.pssc (Session Configuration File)</li>
+                            <li>.cdxml (Cmdlet Definition XML Document)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Website</th>
+                    <td>microsoft.com/powershell</td>
+                </tr>
+                <tr>
+                    <th>Influenced by</th>
+                    <td>Ksh, Perl, C#, CL, DCL, SQL, Tcl, Tk, Chef, Puppet</td>
+                </tr>
+            </table>
+            <img onload="myBtnHide()" onclick="topFunction()" id="myBtn" title="Go to top" src="_img/top.png">
+        </section>
+
+
+        <footer id="foot">
+            <p>This page was created based on wikipedia material and for HTML+CSS+JS learning/training purposes only.</p>
+            <p>Please use the following <a href="https://en.wikipedia.org/wiki/PowerShell" target="_blank">link</a> to
+                look the original material</p>
+            <p>Creator: Thiago Borysovas</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+section table#table {
+    width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid white;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+section table#table th {
+    border: 1px solid white;
+    background-color: #808080;
+    width: 100px;
+    padding: 5px;
+}
+
+section table#table th.c2 {
+    border: 1px solid white;
+    background-color: #808080;
+    width: 200px;
+}
+
+section table#table td {
+    border: 1px solid white;
+    padding: 3px;
+}
+
+section table#table td.c3 {
+    text-align: right;
+    background-color: #606060;
+}

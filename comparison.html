@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="_css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_css/comparison.css" />
+    <title>Powershell training</title>
+    <link rel="icon" type="image/png" href="_img/psicon1.png" />
+    <script type="text/javascript" src="jscript.js"></script>
+</head>
+
+<body>
+    <div id="interface">
+
+        <header id="header">
+            <hgroup>
+                <h1>PowerShell</h1>
+                <h3>Copyright (C) 2015 Microsoft Corporation. All rights reserverd.</h3>
+            </hgroup>
+
+            <img id="icon" src="_img/logo.png" onmouseover="icone('psicon')" onmouseout="icone('logo')" />
+            <nav id="menu">
+                <h1>Principal Menu</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="background.html">Background</a></li>
+                    <li><a href="design.html">Design</a></li>
+                    <li><a href="comparison.html">Comparisons</a></li>
+                    <li><a href="appSupport.html">Applications' support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+
+            <h1>Comparison of cmdlets with similar commands</h1>
+            <p>The following table contains a selection of the cmdlets that ship with PowerShell, noting similar
+                commands in other well-known command-line interpreters. Many of these similar commands come
+                out-of-the-box defined as aliases within PowerShell, making it easy for people familiar with other
+                common shells to start working.</p>
+
+            <table id="table">
+                <tr>
+                    <th>PowerShell (Cmdlet)</th>
+                    <th class="c2">PowerShell (Alias)</th>
+                    <th>CMD.EXE / COMMAND.COM</th>
+                    <th class="c2">Unix shell</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td class="c3">Get-ChildItem</td>
+                    <td>gci, dir, ls</td>
+                    <td>dir</td>
+                    <td>ls</td>
+                    <td>List all files / directories in the (current) directory</td>
+                <tr>
+                    <td class="c3">Test-Connection[a]</td>
+                    <td>N/A</td>
+                    <td>ping</td>
+                    <td>ping</td>
+                    <td>Sends ICMP echo requests to specified machine from the current machine, or instructs another
+                        machine to do so</td>
+                </tr>
+                <tr>
+                    <td class="c3">Get-Content</td>
+                    <td>gc, type, cat</td>
+                    <td>type</td>
+                    <td>cat</td>
+                    <td>Get the content of a file</td>
+                </tr>
+                <tr>
+                    <td class="c3">Get-Command</td>
+                    <td>gcm</td>
+                    <td>help</td>
+                    <td>type, which, compgen</td>
+                    <td>List available commands</td>
+                </tr>
+                <tr>
+                    <td class="c3">Get-Help</td>
+                    <td>help, man</td>
+                    <td>help</td>
+                    <td>apropos, man</td>
+                    <td>Help on commands</td>
+                </tr>
+                <tr>
+                    <td class="c3">Clear-Host</td>
+                    <td>cls, clear</td>
+                    <td>cls</td>
+                    <td>clear</td>
+                    <td>Clear the screen[b]</td>
+                </tr>
+                <tr>
+                    <td class="c3">Copy-Item</td>
+                    <td>cpi, copy, cp</td>
+                    <td>copy</td>
+                    <td>cp</td>
+                    <td>Copy one or several files / a whole directory tree</td>
+                </tr>
+                <tr>
+                    <td class="c3">Move-Item</td>
+                    <td>mi, move, mv</td>
+                    <td>move</td>
+                    <td>mv</td>
+                    <td>Move a file / a directory to a new location</td>
+                </tr>
+                <tr>
+                    <td class="c3">Remove-Item</td>
+                    <td>ri, del, erase, rmdir, rd, rm</td>
+                    <td>del, erase, rmdir, rd</td>
+                    <td>rm, rmdir</td>
+                    <td>Delete a file / a directory</td>
+                </tr>
+                <tr>
+                    <td class="c3">Rename-Item</td>
+                    <td>rni, ren, mv</td>
+                    <td>ren, rename</td>
+                    <td>mv</td>
+                    <td>Rename a file / a directory</td>
+                </tr>
+                <tr>
+                    <td class="c3">Get-Location</td>
+                    <td>gl, cd, pwd</td>
+                    <td>cd</td>
+                    <td>pwd</td>
+                    <td>Display the current directory/present working directory.</td>
+                </tr>
+                <tr>
+                    <td class="c3">Pop-Location</td>
+                    <td>popd</td>
+                    <td>popd</td>
+                    <td>popd</td>
+                    <td>Change the current directory to the directory most recently pushed onto the stack</td>
+                </tr>
+                <tr>
+                    <td class="c3">Push-Location</td>
+                    <td>pushd</td>
+                    <td>pushd</td>
+                    <td>pushd</td>
+                    <td>Push the current directory onto the stack</td>
+                </tr>
+                <tr>
+                    <td class="c3">Set-Location</td>
+                    <td>sl, cd, chdir</td>
+                    <td>cd, chdir</td>
+                    <td>cd</td>
+                    <td>Change the current directory</td>
+                </tr>
+                <tr>
+                    <td class="c3">Tee-Object</td>
+                    <td>tee</td>
+                    <td>N/A</td>
+                    <td>tee</td>
+                    <td>Pipe input to a file or variable, then pass the input along the pipeline</td>
+                </tr>
+                <tr>
+                    <td class="c3">Write-Output</td>
+                    <td>echo, write</td>
+                    <td>echo</td>
+                    <td>echo</td>
+                    <td>Print strings, variables etc. to standard output</td>
+                </tr>
+                <tr>
+                    <td class="c3">Get-Process</td>
+                    <td>gps, ps</td>
+                    <td>tlist,[c] tasklist[d]</td>
+                    <td>ps</td>
+                    <td>List all currently running processes</td>
+                </tr>
+                <tr>
+                    <td class="c3">Stop-Process</td>
+                    <td>spps, kill</td>
+                    <td>kill,[c] taskkill[d]</td>
+                    <td>kill[e]</td>
+                    <td>Stop a running process</td>
+                </tr>
+                <tr>
+                    <td class="c3">Select-String</td>
+                    <td>sls</td>
+                    <td>find, findstr</td>
+                    <td>grep</td>
+                    <td>Print lines matching a pattern</td>
+                </tr>
+                <tr>
+                    <td class="c3">Set-Variable</td>
+                    <td>sv, set</td>
+                    <td>set</td>
+                    <td>env, export, set, setenv</td>
+                    <td>Set the value of a variable / create a variable</td>
+                </tr>
+                <tr>
+                    <td class="c3">Invoke-WebRequest</td>
+                    <td>iwr, curl, wget</td>
+                    <td>N/A</td>
+                    <td>wget, curl</td>
+                    <td>Gets content from a web page on the Internet</td>
+                </tr>
+            </table>
+
+            <h4>Notes</h4>
+
+            <ol type="a">
+                <li>While the external ping command remains available to PowerShell, Test-Connection's output is a
+                    structured object that can be programmatically inspected.</li>
+                <li>Clear-Host is implemented as a predefined PowerShell function;</li>
+                <li>Available in Windows NT4, Windows 98 Resource Kit, Windows 2000 Support Tools;</li>
+                <li>Available in Windows XP Professional Edition and later;</li>
+                <li>Also used in UNIX to send a process any signal, the "Terminate" signal is merely the default.</li>
+            </ol>
+            <img onload="myBtnHide()" onclick="topFunction()" id="myBtn" title="Go to top" src="_img/top.png">
+        </section>
+
+        <footer id="foot">
+            <p>This page was created based on wikipedia material and for HTML+CSS+JS learning/training purposes only.</p>
+            <p>Please use the following <a href="https://en.wikipedia.org/wiki/PowerShell" target="_blank">link</a> to
+                look the original material</p>
+            <p>Creator: Thiago Borysovas</p>
+        </footer>
+    </div>
+</body>
+
+</html>

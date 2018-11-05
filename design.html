@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="_css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="_css/design.css" />
+    <title>Powershell training</title>
+    <link rel="icon" type="image/png" href="_img/psicon1.png" />
+    <script type="text/javascript" src="jscript.js"></script>
+</head>
+
+<body>
+    <div id="interface">
+
+        <header id="header">
+            <hgroup>
+                <h1>PowerShell</h1>
+                <h3>Copyright (C) 2015 Microsoft Corporation. All rights reserverd.</h3>
+            </hgroup>
+
+            <img id="icon" src="_img/logo.png" onmouseover="icone('psicon')" onmouseout="icone('logo')" />
+            <nav id="menu">
+                <h1>Principal Menu</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="background.html">Background</a></li>
+                    <li><a href="design.html">Design</a></li>
+                    <li><a href="comparison.html">Comparisons</a></li>
+                    <li><a href="appSupport.html">Applications' support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+
+            <h1>Design</h1>
+            <p>PowerShell's developers based the core grammar of the tool on that of POSIX 1003.2.</p>
+
+            <p>Windows PowerShell can execute four kinds of named commands:</p>
+
+            <ul id="desList">
+                <li>cmdlets (.NET Framework programs designed to interact with PowerShell)</li>
+                <li>PowerShell scripts (files suffixed by <span class="words">.ps1</span>)</li>
+                <li>PowerShell functions</li>
+                <li>standalone executable programs</li>
+            </ul>
+
+            <p>If a command is a standalone executable program, <span class="words">PowerShell.exe</span> launches it
+                in a separate process; if it is a cmdlet, it executes in the PowerShell process. PowerShell provides an
+                interactive command-line interface, wherein the commands can be entered and their output displayed. The
+                user interface, based on the Win32 console, offers customizable tab completion. PowerShell enables the
+                creation of aliases for cmdlets, which PowerShell textually translates into invocations of the original
+                commands. PowerShell supports both named and positional parameters for commands. In executing a cmdlet,
+                the job of binding the argument value to the parameter is done by PowerShell itself, but for external
+                executables, arguments are parsed by the external executable independently of PowerShell
+                interpretation.</p>
+
+            <p>The PowerShell Extended Type System (ETS) is based on the .NET type system, but with extended semantics
+                (for example, propertySets and third-party extensibility). For example, it enables the creation of
+                different views of objects by exposing only a subset of the data fields, properties, and methods, as
+                well as specifying custom formatting and sorting behavior. These views are mapped to the original
+                object using XML-based configuration files.</p>
+
+            <h3>Cmdlets</h3>
+            <p>Cmdlets are specialized commands in the PowerShell environment that implement specific functions. These
+                are the native commands in the PowerShell stack. Cmdlets follow a Verb-Noun naming pattern, such as
+                Get-ChildItem, helping to make them self-descriptive. Cmdlets output their results as objects or as
+                collections thereof (including arrays), and can optionally receive input in that form, making them
+                suitable for use as recipients in a pipeline. But whereas PowerShell allows arrays and other
+                collections of objects to be written to the pipeline, cmdlets always process objects individually. For
+                collections of objects, PowerShell invokes the cmdlet on each object in the collection, in sequence.</p>
+
+            <p>Cmdlets are specialized .NET classes, which the PowerShell runtime instantiates and invokes at run-time.
+                Cmdlets derive either from Cmdlet or from PSCmdlet, the latter being used when the cmdlet needs to
+                interact with the PowerShell runtime. These base classes specify certain methods – BeginProcessing(),
+                ProcessRecord() and EndProcessing() – which the cmdlet's implementation overrides to provide the
+                functionality. Whenever a cmdlet runs, PowerShell invokes these methods in sequence, with
+                ProcessRecord() being called if it receives pipeline input. If a collection of objects is piped, the
+                method is invoked for each object in the collection. The class implementing the Cmdlet must have one
+                .NET attribute – CmdletAttribute – which specifies the verb and the noun that make up the name of the
+                cmdlet. Common verbs are provided as an enum.</p>
+
+            <p>If a cmdlet receives either pipeline input or command-line parameter input, there must be a
+                corresponding property in the class, with a mutator implementation. PowerShell invokes the mutator with
+                the parameter value or pipeline input, which is saved by the mutator implementation in class variables.
+                These values are then referred to by the methods which implement the functionality. Properties that map
+                to command-line parameters are marked by ParameterAttribute and are set before the call to
+                BeginProcessing(). Those which map to pipeline input are also flanked by ParameterAttribute, but with
+                the ValueFromPipeline attribute parameter set.</p>
+
+            <p>The implementation of these cmdlet classes can refer to any .NET API and may be in any .NET language. In
+                addition, PowerShell makes certain APIs available, such as WriteObject(), which is used to access
+                PowerShell-specific functionality, such as writing resultant objects to the pipeline. Cmdlets can use
+                .NET data access APIs directly or use the PowerShell infrastructure of PowerShell Providers, which make
+                data stores addressable using unique paths. Data stores are exposed using drive letters, and
+                hierarchies within them, addressed as directories. Windows PowerShell ships with providers for the file
+                system, registry, the certificate store, as well as the namespaces for command aliases, variables, and
+                functions. Windows PowerShell also includes various cmdlets for managing various Windows systems,
+                including the file system, or using Windows Management Instrumentation to control Windows components.
+                Other applications can register cmdlets with PowerShell, thus allowing it to manage them, and, if they
+                enclose any datastore (such as databases), they can add specific providers as well.</p>
+
+            <p>PowerShell V2 added a more portable version of Cmdlets called Modules. The PowerShell V2 release notes
+                state:</p>
+
+            <p id="citation"><i>"Modules allow script developers and administrators to partition and organize their
+                    Windows PowerShell code in self-contained, reusable units. Code from a module executes in its own
+                    self-contained context and does not affect the state outside of the module. Modules also enable you
+                    to define a restricted runspace environment by using a script."</i></p>
+
+            <h3>Pipeline</h3>
+            <p>PowerShell implements the concept of a pipeline, which enables piping the output of one cmdlet to
+                another cmdlet as input. For example, the output of the Get-Process cmdlet could be piped to the
+                Where-Object to filter any process that has less than 1 MB of paged memory, and then to the Sort-Object
+                cmdlet (e.g., to sort the objects by handle count), and then finally to the Select-Object cmdlet to
+                select just the first 10 (i.e., the 10 processes based on handle count).</p>
+
+            <p>As with Unix pipelines, PowerShell pipelines can construct complex commands, using the <span class="words">|</span>
+                operator to connect stages. However, the PowerShell pipeline differs from Unix pipelines in that stages
+                execute within the PowerShell runtime rather than as a set of processes coordinated by the operating
+                system, and structured .NET objects, rather than byte streams, are passed from one stage to the next.
+                Using objects and executing stages within the PowerShell runtime eliminates the need to serialize data
+                structures, or to extract them by explicitly parsing text output. An object can also encapsulate
+                certain functions that work on the contained data, which become available to the recipient command for
+                use. For the last cmdlet in a pipeline, PowerShell automatically pipes its output object to the
+                Out-Default cmdlet, which transforms the objects into a stream of format objects and then renders those
+                to the screen.</p>
+
+            <p>Because all PowerShell objects are .NET objects, they share a <span class="words">.ToString()</span>
+                method, which retrieves the text representation of the data in an object. In addition, PowerShell
+                allows formatting definitions to be specified, so the text representation of objects can be customized
+                by choosing which data elements to display, and in what manner. However, in order to maintain backwards
+                compatibility, if an external executable is used in a pipeline, it receives a text stream representing
+                the object, instead of directly integrating with the PowerShell type system.</p>
+
+            <h3>Scripting</h3>
+            <p>Windows PowerShell includes a dynamically typed scripting language which can implement complex
+                operations using cmdlets imperatively. The scripting language supports variables, functions, branching
+                (if-then-else), loops (while, do, for, and foreach), structured error/exception handling and
+                closures/lambda expressions, as well as integration with .NET. Variables in PowerShell scripts are
+                prefixed with $. Variables can be assigned any value, including the output of cmdlets. Strings can be
+                enclosed either in single quotes or in double quotes: when using double quotes, variables will be
+                expanded even if they are inside the quotation marks. Enclosing the path to a file in braces preceded
+                by a dollar sign (as in <span class="words">${C:\foo.txt}</span>) creates a reference to the contents
+                of the file. If it is used as an L-value, anything assigned to it will be written to the file. When
+                used as an R-value, the contents of the file will be read. If an object is assigned, it is serialized
+                before being stored.</p>
+
+            <p>Object members can be accessed using <span class="words">.</span> notation, as in C# syntax. PowerShell
+                provides special variables, such as <span class="words">$args</span>, which is an array of all the
+                command line arguments passed to a function from the command line, and <span class="words">$_</span>,
+                which refers to the current object in the pipeline. PowerShell also provides arrays and associative
+                arrays. The PowerShell scripting language also evaluates arithmetic expressions entered on the command
+                line immediately, and it parses common abbreviations, such as GB, MB, and KB.</p>
+
+            <p>Using the function keyword, PowerShell provides for the creation of functions, the following general
+                form:</p>
+
+            <pre>
+                    <code>
+                        <div id="designFunc">
+function name ($Param1, $Param2) {
+    Instructions
+    }
+                        </div>
+                    </code>
+                </pre>
+
+            <p>The defined function is invoked in either of the following forms:</p>
+
+            <ul id="desListForm">
+                <li>name value1 value2</li>
+                <li>name -Param1 value1 -Param2 value2</li>
+            </ul>
+            <p>PowerShell supports named parameters, positional parameters, switch parameters and dynamic parameters.</p>
+
+            <p>PowerShell allows any .NET methods to be called by providing their namespaces enclosed in brackets ([]),
+                and then using a pair of colons (::) to indicate the static method. For example,
+                [System.Console]::WriteLine("PowerShell"). Objects are created using the New-Object cmdlet. Calling
+                methods of .NET objects is accomplished by using the regular.</p>
+
+            <p>PowerShell scripting language accepts strings, both raw and escaped. A string enclosed between single
+                quotation marks is a raw string while a string enclosed between double quotation marks is an escaped
+                string. PowerShell treats straight and curly quotes as equivalent.</p>
+
+            <p>For error handling, PowerShell provides a .NET-based exception-handling mechanism. In case of errors,
+                objects containing information about the error (Exception object) are thrown, which are caught using
+                the try ... catch construct (although a trap construct is supported as well). However, the
+                action-or-error is configurable; in case of an error, PowerShell can be configured to silently resume
+                execution, without actually throwing the exception.</p>
+
+            <p>Scripts written using PowerShell can be made to persist across sessions in either a <span class="words">.ps1</span>
+                file or a <span class="words">.psm1</span> file (the latter is used to implement a module). Later,
+                either the entire script or individual functions in the script can be used. Scripts and functions
+                operate analogously with cmdlets, in that they can be used as commands in pipelines, and parameters can
+                be bound to them. Pipeline objects can be passed between functions, scripts, and cmdlets seamlessly. To
+                prevent unintentional running of scripts, script execution is disabled by default and must be enabled
+                explicitly.[45] Enabling of scripts can be performed either at system, user or session level.
+                PowerShell scripts can be signed to verify their integrity, and are subject to Code Access Security.</p>
+
+            <p>The PowerShell scripting language supports binary prefix notation similar to the scientific notation
+                supported by many programming languages in the C-family.</p>
+
+            <h3>Hosting</h3>
+            <p>One can also use PowerShell embedded in a management application, which uses the PowerShell runtime to
+                implement the management functionality. For this, PowerShell provides a managed hosting API. Via the
+                APIs, the application can instantiate a runspace (one instantiation of the PowerShell runtime), which
+                runs in the application's process and is exposed as a Runspace object. The state of the runspace is
+                encased in a SessionState object. When the runspace is created, the Windows PowerShell runtime
+                initializes the instantiation, including initializing the providers and enumerating the cmdlets, and
+                updates the SessionState object accordingly. The Runspace then must be opened for either synchronous
+                processing or asynchronous processing. After that it can be used to execute commands.</p>
+
+            <p>To execute a command, a pipeline (represented by a Pipeline object) must be created and associated with
+                the runspace. The pipeline object is then populated with the cmdlets that make up the pipeline. For
+                sequential operations (as in a PowerShell script), a Pipeline object is created for each statement and
+                nested inside another Pipeline object. When a pipeline is created, Windows PowerShell invokes the
+                pipeline processor, which resolves the cmdlets into their respective assemblies (the command processor)
+                and adds a reference to them to the pipeline, and associates them with InputPipe, Outputpipe and
+                ErrorOutputPipe objects, to represent the connection with the pipeline. The types are verified and
+                parameters bound using reflection. Once the pipeline is set up, the host calls the Invoke() method to
+                run the commands, or its asynchronous equivalent – InvokeAsync(). If the pipeline has the Write-Host
+                cmdlet at the end of the pipeline, it writes the result onto the console screen. If not, the results
+                are handed over to the host, which might either apply further processing or display the output itself.</p>
+
+            <p>Microsoft Exchange Server 2007 uses the hosting APIs to provide its management GUI. Each operation
+                exposed in the GUI is mapped to a sequence of PowerShell commands (or pipelines). The host creates the
+                pipeline and executes them. In fact, the interactive PowerShell console itself is a PowerShell host,
+                which interprets the scripts entered at command line and creates the necessary Pipeline objects and
+                invokes them</p>
+
+            <img onload="myBtnHide()" onclick="topFunction()" id="myBtn" title="Go to top" src="_img/top.png">
+        </section>
+
+
+        <footer id="foot">
+            <p>This page was created based on wikipedia material and for HTML+CSS+JS learning/training purposes only.</p>
+            <p>Please use the following <a href="https://en.wikipedia.org/wiki/PowerShell" target="_blank">link</a> to
+                look the original material</p>
+            <p>Creator: Thiago Borysovas</p>
+        </footer>
+    </div>
+</body>
+
+</html>
